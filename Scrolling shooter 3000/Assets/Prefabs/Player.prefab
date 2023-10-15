@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 1588752551604156260}
   - component: {fileID: 692277135941031653}
   - component: {fileID: 7034821725056685489}
+  - component: {fileID: 3498624551208128181}
+  - component: {fileID: 394764164108153073}
+  - component: {fileID: 9009748054850347441}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -174,6 +177,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 483f8da7-ead8-4fe7-b22f-589abb7dafbd
     m_ActionName: Ship/Shoot[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e29d573-c92f-40d8-951a-8e12245240f2
+    m_ActionName: Ship/Shield[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Ship
@@ -193,6 +200,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawner: {fileID: 8275754373071367978}
   attackForce: 10
+--- !u!114 &3498624551208128181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114452045895523227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d348dddbb9f1014eaca2ed69e932423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &394764164108153073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114452045895523227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da84240b8be55a4dba410373f6736f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9009748054850347441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114452045895523227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33e2d136ea1a3e4a91cd9ff217a7052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  cooldown: 2
 --- !u!1 &8275754373071367978
 GameObject:
   m_ObjectHideFlags: 0

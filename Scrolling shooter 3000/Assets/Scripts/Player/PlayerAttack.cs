@@ -26,6 +26,5 @@ public class PlayerAttack : MonoBehaviour
             bullet.SetActive(true);
             bulletRB.AddForce(bullet.transform.up * attackForce, ForceMode2D.Impulse);
         }
-        
     }
 }

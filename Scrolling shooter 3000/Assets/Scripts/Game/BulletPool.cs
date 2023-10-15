@@ -12,9 +12,18 @@ public class BulletPool : MonoBehaviour
 
     private void Awake()
     {
+        Singleton();
+        CreatePool();
+    }
+
+    void Singleton()
+    {
         if (Instance != null && Instance != this) { Destroy(this); }
         else { Instance = this; }
+    }
 
+    void CreatePool()
+    {
         pooledBullets = new List<GameObject>();
         GameObject bullet;
 
