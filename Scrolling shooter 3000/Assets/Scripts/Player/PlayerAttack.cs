@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
             bulletRB = bullet.GetComponent<Rigidbody2D>();
             bullet.transform.position = bulletSpawner.transform.position;
             bullet.SetActive(true);
-            bulletRB.AddForce(bullet.transform.up * attackForce, ForceMode2D.Impulse);
+            //bulletRB.AddForce(bullet.transform.up * attackForce, ForceMode2D.Impulse);
         }
     }
 }
