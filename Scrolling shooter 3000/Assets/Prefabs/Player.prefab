@@ -199,7 +199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawner: {fileID: 8275754373071367978}
-  attackForce: 10
 --- !u!114 &3498624551208128181
 MonoBehaviour:
   m_ObjectHideFlags: 0

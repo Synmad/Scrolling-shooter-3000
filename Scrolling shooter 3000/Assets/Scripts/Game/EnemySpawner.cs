@@ -1,16 +1,25 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] float cooldown;
     GameObject enemy;
 
-    private void Update()
+    private void Start() { StartCoroutine(SpawnEnemy()); }
+
+    private IEnumerator SpawnEnemy()
     {
-        enemy = EnemyPool.Instance.GetPooledEnemies();
-        if (enemy != null)
-        { 
-            enemy.transform.position = this.gameObject.transform.position;
-            enemy.SetActive(true);
+        while (true)
+        {
+            enemy = EnemyPool.Instance.GetPooledEnemies();
+            if (enemy != null)
+            {
+                enemy.transform.position = this.gameObject.transform.position;
+                enemy.SetActive(true);
+            }
+            yield return new WaitForSeconds(cooldown);
+            yield return null;
         }
     }
 }
