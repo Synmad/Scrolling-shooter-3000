@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
 
     void SpawnBullet()
     {
-        bullet = BulletPool.Instance.GetPooledBullets();
+        bullet = BulletPool.Instance.GetPooledObjects();
         
         if (bullet != null)
         {

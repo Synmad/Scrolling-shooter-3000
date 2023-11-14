@@ -27,8 +27,5 @@ public class GoalController : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        EnemyCollision.onEnemyDie -= IncreaseProgress;
-    }
+    private void OnDisable() => EnemyCollision.onEnemyDie -= IncreaseProgress;
 }

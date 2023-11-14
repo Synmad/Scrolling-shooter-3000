@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            enemy = EnemyPool.Instance.GetPooledEnemies();
+            enemy = EnemyPool.Instance.GetPooledObjects();
             if (enemy != null)
             {
                 enemy.transform.position = this.gameObject.transform.position;

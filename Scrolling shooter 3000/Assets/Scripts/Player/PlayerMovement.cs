@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake() { rb = GetComponent<Rigidbody2D>(); playerinput = GetComponent<PlayerInput>(); }
 
-    private void Update() { input = playerinput.actions["Move"].ReadValue<Vector2>(); }
+    private void Update() => input = playerinput.actions["Move"].ReadValue<Vector2>();
 
-    private void FixedUpdate() { rb.AddForce(new Vector2(input.x, input.y) * force, ForceMode2D.Impulse); }
+    private void FixedUpdate() => rb.AddForce(new Vector2(input.x, input.y) * force, ForceMode2D.Impulse); 
 }

@@ -21,13 +21,9 @@ public class GoalTextController : MonoBehaviour
 
     void DecreaseEnemiesRemaining()
     {
-        Debug.Log("el pepe");
         enemiesRemaining--;
         UpdateText();
     }
 
-    void UpdateText()
-    {
-        text.text = "ENEMIES REMAINING: " + enemiesRemaining.ToString();
-    }
+    void UpdateText() => text.text = "ENEMIES REMAINING: " + enemiesRemaining.ToString();
 }

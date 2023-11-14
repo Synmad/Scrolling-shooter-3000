@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839e70bb7dd76234f97b26554e2b6b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5643783389145632101, guid: c5ee865e09750a443a22c8a88738d107, type: 3}
-  pooledBullets: []
+  prefab: {fileID: 5643783389145632101, guid: c5ee865e09750a443a22c8a88738d107, type: 3}
+  pooledObjects: []
   poolSize: 10
 --- !u!4 &66319554
 Transform:
@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94215d1971ad07a4bbf0355ec0173fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2599593633233610098, guid: 51fa750e97531ca428304dedaee9dc66, type: 3}
-  pooledEnemies: []
+  prefab: {fileID: 2599593633233610098, guid: 51fa750e97531ca428304dedaee9dc66, type: 3}
+  pooledObjects: []
   poolSize: 3
 --- !u!114 &66319557
 MonoBehaviour:

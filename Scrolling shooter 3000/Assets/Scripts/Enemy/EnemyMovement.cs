@@ -9,10 +9,7 @@ public class EnemyMovement : MonoBehaviour
     Vector2 pos;
     float center;
 
-    private void Start()
-    {
-        center = EnemyPool.Instance.gameObject.transform.position.y;
-    }
+    private void Start() => center = EnemyPool.Instance.gameObject.transform.position.y;
 
     private void FixedUpdate()
     {
