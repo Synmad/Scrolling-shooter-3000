@@ -9,12 +9,7 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] int poolSize;
 
-    private void Awake()
-    {
-        CreatePool();
-    }
-
-    void CreatePool()
+    protected void CreatePool()
     {
         pooledObjects = new List<GameObject>();
         GameObject objectInstance;
