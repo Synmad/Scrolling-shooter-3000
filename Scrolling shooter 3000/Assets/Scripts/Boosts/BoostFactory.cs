@@ -5,9 +5,23 @@ public class BoostFactory : MonoBehaviour
 {
     [SerializeField] Boost[] boosts;
 
+    public static BoostFactory Instance { get; private set; }
+
     Dictionary<string, Boost> boostsByName;
 
     private void Awake()
+    {
+        Singleton();
+        PopulateDictionary();
+    }
+
+    void Singleton()
+    {
+        if (Instance != null && Instance != this) { Destroy(this); }
+        else { Instance = this; } 
+    }
+
+    void PopulateDictionary()
     {
         boostsByName = new Dictionary<string, Boost>();
 

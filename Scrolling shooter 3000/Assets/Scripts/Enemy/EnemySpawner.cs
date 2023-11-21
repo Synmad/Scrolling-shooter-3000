@@ -6,9 +6,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float cooldown;
     GameObject enemy;
 
-    private void Start() { StartCoroutine(SpawnEnemy()); }
+    private void Start() => StartCoroutine(Spawn()); 
 
-    private IEnumerator SpawnEnemy()
+    private IEnumerator Spawn()
     {
         while (true)
         {
