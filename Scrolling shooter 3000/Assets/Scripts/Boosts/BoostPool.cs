@@ -10,11 +10,11 @@ public class BoostPool : MonoBehaviour
 
     public static BoostPool Instance { get; private set; }
 
-    private void Awake()
-    {
-        Singleton();
-        CreatePool();
-    }
+    //private void Awake()
+    //{
+    //    Singleton();
+    //    CreatePool();
+    //}
 
     protected void CreatePool()
     {

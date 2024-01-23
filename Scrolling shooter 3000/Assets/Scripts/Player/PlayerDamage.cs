@@ -15,7 +15,7 @@ public class PlayerDamage : MonoBehaviour
 
     void Damage()
     {
-        if (!shield.activated) { onPlayerDeath?.Invoke(); }
-        else { return; }
+        //if (!shield.activated) { onPlayerDeath?.Invoke(); }
+        //else { return; }
     }
 }

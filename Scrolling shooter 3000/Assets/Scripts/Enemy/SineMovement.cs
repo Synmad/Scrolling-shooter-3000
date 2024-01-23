@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class SineMovement : Enemy
 {
     [SerializeField] float speed;
     [SerializeField] float amplitude;
@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     Vector2 pos;
     float center;
 
-    private void Start() => center = EnemyPool.Instance.gameObject.transform.position.y;
+    //private void Start() => center = EnemyPool.Instance.gameObject.transform.position.y;
 
     private void FixedUpdate()
     {

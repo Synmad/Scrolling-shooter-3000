@@ -6,7 +6,7 @@ public class BoostSpawner : MonoBehaviour
     [SerializeField] float cooldown;
     GameObject boost;
 
-    private void Start() => StartCoroutine(Spawn());
+    //private void Start() => StartCoroutine(Spawn());
 
     private IEnumerator Spawn()
     {

@@ -1,6 +1,6 @@
-public class BulletPool : ObjectPool
+public class PlayerBulletPool : ObjectPool
 {
-    public static BulletPool Instance { get; private set; }
+    public static PlayerBulletPool Instance { get; private set; }
 
     private void Awake()
     {
