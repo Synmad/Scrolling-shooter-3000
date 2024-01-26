@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AlignMovement : Enemy
@@ -7,12 +6,13 @@ public class AlignMovement : Enemy
     [SerializeField] float speed;
     GameObject player;
 
-    [SerializeField] GameObject rayOrigin;
-    RaycastHit2D hit;
-
     [SerializeField] GameObject bulletSpawner;
     GameObject bullet;
     bool isAttacking;
+
+    Vector2 targetPosition;
+
+    bool overlapping;
 
     private void Awake()
     {
@@ -21,25 +21,22 @@ public class AlignMovement : Enemy
 
     private void Update()
     {
+        Vector2 velocity = new Vector2(1, 1) * speed;
+
+        if(overlapping) { Debug.Log("mierdaaa"); }
+
         if(isAttacking == false)
         {
-            transform.position = new Vector3(0, Mathf.Lerp(transform.position.y, player.transform.position.y, Time.deltaTime * speed));
-        }
-        
-
-        hit = Physics2D.Raycast(rayOrigin.transform.position, Vector2.left);
-        if (hit.collider != null)
-        {
-            if(hit.collider.gameObject.tag == "Player")
+            targetPosition = new Vector2(transform.position.x, player.transform.position.y);
+            if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
             {
                 bullet = EnemyBulletPool.Instance.GetPooledObjects();
-
-                if (bullet != null && isAttacking == false)
+                if (bullet != null)
                 {
                     StartCoroutine(Attack());
                 }
-                
             }
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
     }
     
@@ -61,5 +58,14 @@ public class AlignMovement : Enemy
         }
         isAttacking = false;
     }
-    
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")) { overlapping = true; }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")) { overlapping = false; }
+    }
 }

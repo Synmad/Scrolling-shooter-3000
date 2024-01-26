@@ -7,6 +7,6 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")) { onPlayerHit?.Invoke(); }
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet")) { onPlayerHit?.Invoke(); }
     }
 }

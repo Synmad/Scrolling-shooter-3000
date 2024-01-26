@@ -5,22 +5,19 @@ using UnityEngine;
 
 public class EnemyPooler : MonoBehaviour
 {
-    //[SerializeField] float countdown;
-
-    [SerializeField] List<Queue> queues;
-
     [SerializeField] public Wave[] waves;
     int currentWave;
     public static Action onPoolingComplete;
 
+    [SerializeField] List<Queue> queues;
     int currentQueue;
-    
+    [SerializeField] float countdown;
 
     private void Start()
     {
         queues = new List<Queue>();
-        SpawnWave();
-        SpawnQueue();
+        PoolWaves();
+        StartCoroutine(SpawnQueue());
     }
 
     private void Update()
@@ -32,7 +29,7 @@ public class EnemyPooler : MonoBehaviour
         //}
     }
 
-    void SpawnWave()
+    void PoolWaves()
     {
         for(int waveIndex = 0; 
             waveIndex < waves.Length;
@@ -57,23 +54,27 @@ public class EnemyPooler : MonoBehaviour
         }
     }
 
-    void SpawnQueue()
+    IEnumerator SpawnQueue()
     {
-        for(int queueIndex = 0; 
-            queueIndex <= queues.Count;
+        for(int queueIndex = 0;
+            queueIndex <= queues.Count; 
             queueIndex++)
         {
             for(int enemyIndex = 0;
-                enemyIndex < queues[currentQueue].qEnemies.Count; 
+                enemyIndex < queues[currentQueue].qEnemies.Count;
                 enemyIndex++)
             {
-                queues[currentQueue].qEnemies[enemyIndex].SetActive(true);
-                Debug.Log(queues[currentQueue].qEnemies[enemyIndex].name);
+                GameObject toSpawn;
+                toSpawn = queues[currentQueue].qEnemies[enemyIndex];
+                toSpawn.transform.position = waves[currentQueue].spawnPositions[enemyIndex].position;
+                toSpawn.SetActive(true);
+                yield return new WaitForSeconds(3);
             }
             if (currentQueue < queues.Count)
             {
                 currentQueue++;
             }
+            yield return new WaitForSeconds(10);
         }
     }
 }
@@ -82,8 +83,7 @@ public class EnemyPooler : MonoBehaviour
 public class Wave
 {
     public List<Enemy> enemies;
-    //public float spawnCooldown;
-    //public float waveCooldown;
+    public Transform[] spawnPositions;
 }
 
 [System.Serializable]
