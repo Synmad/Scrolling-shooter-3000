@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2976705703767783550}
   - component: {fileID: 6811282757496516395}
   - component: {fileID: 2253706987285396626}
-  - component: {fileID: 1663734936801807708}
+  - component: {fileID: -7963717070708481836}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -283,7 +283,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1663734936801807708
+--- !u!114 &-7963717070708481836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,11 +292,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2599593633233610098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ddb9c00fc1f87a4c984d90074b12894, type: 3}
+  m_Script: {fileID: 11500000, guid: a8ab2e7d9003d1447a60ff27005202b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
-  speed: 4
+  following: {fileID: 0}
+  adjusting: {fileID: 0}
+  attacking: {fileID: 0}
+  idle: {fileID: 0}
+  speed: 3
   bulletSpawner: {fileID: 1770347817428437344}
 --- !u!1 &5999589763422778725
 GameObject:
