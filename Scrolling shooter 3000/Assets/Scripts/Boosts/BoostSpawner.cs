@@ -1,25 +1,21 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum BoostType
+{
+    Health,
+    Speed,
+}
 
 public class BoostSpawner : MonoBehaviour
 {
-    [SerializeField] float cooldown;
-    GameObject boost;
+    [SerializeField] BoostFactory boostFactory;
 
-    //private void Start() => StartCoroutine(Spawn());
-
-    private IEnumerator Spawn()
+    public void SpawnRandomBoost(Vector3 position)
     {
-        while (true)
-        {
-            boost = BoostPool.Instance.GetPooledObjects();
-            if (boost != null)
-            {
-                boost.transform.position = this.gameObject.transform.position; //debería ser una posición aleatoria
-                boost.SetActive(true);
-            }
-            yield return new WaitForSeconds(cooldown);
-            yield return null;
-        }
+        //random.range deberia ser (0, [tamaño de BoostType]), pero no se como hacer eso
+        BoostType randomType = (BoostType)Random.Range(0, 1);
+        GameObject boostToSpawn = boostFactory.CreateBoost(randomType, position);   
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BossArrivingState : BossState
@@ -5,8 +6,11 @@ public class BossArrivingState : BossState
     BossController bossController;
     float speed = 2;
 
+    public static Action onBossArriving;
+
     public override void EnterState(BossController boss)
     {
+        onBossArriving?.Invoke();
         bossController = boss;
         BossController.onWallReached += Stop;
     }

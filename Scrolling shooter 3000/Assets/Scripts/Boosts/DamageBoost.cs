@@ -1,8 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageBoost : Boost
+public class DamageBoost : MonoBehaviour
 {
-    public override string boostName => "Damage";
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-    public override void Effect() => Debug.Log("Damage!!");
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

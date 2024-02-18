@@ -11,22 +11,15 @@ public class EnemyPooler : MonoBehaviour
 
     [SerializeField] List<Queue> queues;
     int currentQueue;
-    [SerializeField] float countdown;
+
+    [SerializeField] float timeBetweenEnemies;
+    [SerializeField] float timeBetweenWaves;
 
     private void Start()
     {
         queues = new List<Queue>();
         PoolWaves();
         StartCoroutine(SpawnQueue());
-    }
-
-    private void Update()
-    {
-        //countdown -= Time.deltaTime;
-        //if(countdown <= 0)
-        //{
-        //    countdown = waves[currentWave].waveCooldown;
-        //}
     }
 
     void PoolWaves()
@@ -68,13 +61,13 @@ public class EnemyPooler : MonoBehaviour
                 toSpawn = queues[currentQueue].qEnemies[enemyIndex];
                 toSpawn.transform.position = waves[currentQueue].spawnPositions[enemyIndex].position;
                 toSpawn.SetActive(true);
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(waves[currentQueue].timeBetweenEnemies);
             }
             if (currentQueue < queues.Count)
             {
                 currentQueue++;
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(waves[currentQueue].timeToNextWave);
         }
     }
 }
@@ -84,6 +77,8 @@ public class Wave
 {
     public List<Enemy> enemies;
     public Transform[] spawnPositions;
+    public float timeBetweenEnemies;
+    public float timeToNextWave;
 }
 
 [System.Serializable]

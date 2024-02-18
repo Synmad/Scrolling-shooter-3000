@@ -8,18 +8,19 @@ public class ShipController : Enemy
     ShipState currentState;
 
     public ShipFollowingState following;
-    public ShipAdjustingState adjusting;
     public ShipAttackingState attacking;
     public ShipIdleState idle;
     #endregion
 
     public float speed;
 
+    public float attackCooldown;
+
     public GameObject bulletSpawner;
 
     private void Awake()
     {
-        following = gameObject.AddComponent<ShipFollowingState>(); adjusting = gameObject.AddComponent<ShipAdjustingState>(); idle = gameObject.AddComponent<ShipIdleState>(); attacking = gameObject.AddComponent<ShipAttackingState>();
+        following = gameObject.AddComponent<ShipFollowingState>(); idle = gameObject.AddComponent<ShipIdleState>(); attacking = gameObject.AddComponent<ShipAttackingState>();
     }
 
     private void Start() => ChangeState(following);

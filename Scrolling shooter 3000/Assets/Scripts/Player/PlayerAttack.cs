@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,10 +6,16 @@ public class PlayerAttack : MonoBehaviour
 {
     GameObject bullet;
     [SerializeField] GameObject bulletSpawner;
+    public static Action onPlayerAttack;
 
-    public void Shoot(InputAction.CallbackContext callbackcontext)
+    private void OnEnable()
     {
-        if (callbackcontext.performed) { SpawnBullet(); }
+        onPlayerAttack += SpawnBullet;
+    }
+
+    void Shoot(InputAction.CallbackContext callbackcontext)
+    {
+        if (callbackcontext.performed) { onPlayerAttack?.Invoke(); }
     }
 
     void SpawnBullet()
@@ -20,5 +27,10 @@ public class PlayerAttack : MonoBehaviour
             bullet.transform.position = bulletSpawner.transform.position;
             bullet.SetActive(true);
         }
+    }
+
+    private void OnDisable()
+    {
+        onPlayerAttack -= SpawnBullet;
     }
 }

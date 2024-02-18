@@ -9,7 +9,7 @@ public class GoalTextController : MonoBehaviour
 
     private void Awake()
     {
-        EnemyCollision.onEnemyDie += DecreaseEnemiesRemaining;
+        EnemyDamage.onEnemyDie += DecreaseEnemiesRemaining;
         text = GetComponent<TextMeshProUGUI>();
     }
 

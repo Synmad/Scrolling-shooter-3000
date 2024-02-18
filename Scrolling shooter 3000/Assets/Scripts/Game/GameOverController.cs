@@ -8,8 +8,8 @@ public class GameOverController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerDamage.onPlayerDeath += GoToDefeat;
-        GoalController.onGoalReached += GoToVictory;
+        PlayerHealth.onPlayerDeath += GoToDefeat;
+        BossDamage.onVictory += GoToVictory;
     }
 
     void GoToDefeat() => SceneManager.LoadScene(defeatScene);

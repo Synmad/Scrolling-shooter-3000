@@ -9,7 +9,6 @@ public class BossIdleState : BossState
     float currentTime;
     public override void EnterState(BossController boss)
     {
-        Debug.Log("enter idle");
         currentTime = startingTime;
     }
 
@@ -19,5 +18,5 @@ public class BossIdleState : BossState
         else { boss.ChangeState(boss.moving); }
     }
 
-    public override void ExitState(BossController boss) { Debug.Log("exit idle"); currentTime = startingTime; }
+    public override void ExitState(BossController boss) { currentTime = startingTime; }
 }

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: -6655822011481793907}
   - component: {fileID: 2253706987285396626}
   - component: {fileID: -641262701858059635}
+  - component: {fileID: -2223289090292443881}
+  - component: {fileID: 5813401490417490405}
   m_Layer: 0
   m_Name: EnemyDrone
   m_TagString: Enemy
@@ -31,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -2.7703416, y: 0.45637578, z: 0}
-  m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
+  m_LocalScale: {x: 3.3000002, y: 3.3000002, z: 3.3000002}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -188,3 +190,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7944fbb745b129a419ec701b3b7bbb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2223289090292443881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599593633233610098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560c210e8a5355c43a00d0a658e9d9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5813401490417490405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599593633233610098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603af20016ce4c64580950f285d062b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2

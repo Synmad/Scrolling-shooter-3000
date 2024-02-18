@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 6811282757496516395}
   - component: {fileID: 2253706987285396626}
   - component: {fileID: -7963717070708481836}
+  - component: {fileID: 5691229678818246031}
+  - component: {fileID: 3854095838653608207}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -297,11 +299,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
   following: {fileID: 0}
-  adjusting: {fileID: 0}
   attacking: {fileID: 0}
   idle: {fileID: 0}
-  speed: 3
+  speed: 4
+  attackCooldown: 1
   bulletSpawner: {fileID: 1770347817428437344}
+--- !u!114 &5691229678818246031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599593633233610098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7944fbb745b129a419ec701b3b7bbb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3854095838653608207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599593633233610098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603af20016ce4c64580950f285d062b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!1 &5999589763422778725
 GameObject:
   m_ObjectHideFlags: 0

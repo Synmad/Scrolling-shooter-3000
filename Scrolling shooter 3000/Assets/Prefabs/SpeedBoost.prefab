@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7288867522790927216}
   - component: {fileID: 5352861046826402206}
-  - component: {fileID: 3708232826374846766}
   - component: {fileID: -9149494275456748486}
+  - component: {fileID: 5151194315503042575}
   m_Layer: 0
   m_Name: SpeedBoost
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3708232826374846766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736563565338610769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84998a455f73f894c98af2a1b99897fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &-9149494275456748486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5151194315503042575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736563565338610769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c9df0e02b4ddc449f8acb62461836a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

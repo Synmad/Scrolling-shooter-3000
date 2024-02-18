@@ -11,6 +11,7 @@ public class BossController : Enemy
     public BossIdleState idle = new BossIdleState();
     public BossMovingState moving = new BossMovingState();
     public BossAttackingState attacking = new BossAttackingState();
+    public BossDeadState dead = new BossDeadState();
 
     public GameObject top; public GameObject mid; public GameObject bot;
 
@@ -18,7 +19,7 @@ public class BossController : Enemy
 
     [field:SerializeField] public GameObject laser { get; private set; }
 
-    private void Start()
+    private void OnEnable()
     {
         ChangeState(arriving);
     }
@@ -30,7 +31,7 @@ public class BossController : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("BossWall")) { Debug.Log("ete sech"); onWallReached?.Invoke(); }
+        if (collision.gameObject.CompareTag("BossWall")) { onWallReached?.Invoke(); }
     }
 
     public void ChangeState(BossState newState)

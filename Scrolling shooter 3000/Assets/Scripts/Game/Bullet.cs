@@ -7,8 +7,6 @@ public class Bullet : MonoBehaviour
     [Tooltip("1 para moverla a la derecha, -1 para moverla a la izquierda")]
     [SerializeField] int direction;
 
-    [SerializeField] bool enemyBullet;
-
     Vector2 directionVector;
     Vector2 velocity;
 
@@ -25,12 +23,5 @@ public class Bullet : MonoBehaviour
 
     void OnBecameInvisible() => this.gameObject.SetActive(false);
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (enemyBullet)
-        {
-            if (collision.gameObject.CompareTag("Player")) { this.gameObject.SetActive(false); }
-        }
-        else if (collision.gameObject.CompareTag("Enemy")) { this.gameObject.SetActive(false); }
-    }
+    
 }

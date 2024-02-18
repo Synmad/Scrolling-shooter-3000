@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 2844610997329329854}
   - component: {fileID: 4988772703500280340}
   - component: {fileID: 6523229757535383457}
-  - component: {fileID: 7753768744841789973}
-  - component: {fileID: 8782463177111019840}
   - component: {fileID: 6403054415075740660}
   - component: {fileID: 2674907349749217101}
+  - component: {fileID: 4183793030614842230}
+  - component: {fileID: 5913157897773515623}
+  - component: {fileID: 9201113977673743066}
+  - component: {fileID: 3573983714248325940}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -79,37 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8350e615cec52c34fb9bf23d494e21d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <goal>k__BackingField: 5
---- !u!114 &7753768744841789973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3474690923363787097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e1364c495ad2940bbd685918ef682e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boosts:
-  - {fileID: 3708232826374846766, guid: cbda90565b51daf4b9bffaccf60f45c3, type: 3}
-  - {fileID: -7467648302017492889, guid: a22668a9564aa0448b3fcc367f5b7e6c, type: 3}
---- !u!114 &8782463177111019840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3474690923363787097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625989ca87c267e4d829de2275d56043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 4736563565338610769, guid: cbda90565b51daf4b9bffaccf60f45c3, type: 3}
-  pooledObjects: []
-  poolSize: 3
+  <goal>k__BackingField: 6
 --- !u!114 &6403054415075740660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,11 +109,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43310fc9922bf644b90736faf2acd3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  queues: []
   waves:
   - enemies:
     - {fileID: -6655822011481793907, guid: 51fa750e97531ca428304dedaee9dc66, type: 3}
     - {fileID: -6655822011481793907, guid: 51fa750e97531ca428304dedaee9dc66, type: 3}
+    - {fileID: -6655822011481793907, guid: 51fa750e97531ca428304dedaee9dc66, type: 3}
+    - {fileID: -6655822011481793907, guid: 51fa750e97531ca428304dedaee9dc66, type: 3}
+    spawnPositions:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    timeBetweenEnemies: 0.5
+    timeToNextWave: 3
   - enemies:
-    - {fileID: 1663734936801807708, guid: 5885a1ba0dcb8aa499f2c8f8544e1788, type: 3}
-    - {fileID: 1663734936801807708, guid: 5885a1ba0dcb8aa499f2c8f8544e1788, type: 3}
+    - {fileID: -7963717070708481836, guid: 5885a1ba0dcb8aa499f2c8f8544e1788, type: 3}
+    - {fileID: -7963717070708481836, guid: 5885a1ba0dcb8aa499f2c8f8544e1788, type: 3}
+    spawnPositions:
+    - {fileID: 0}
+    - {fileID: 0}
+    timeBetweenEnemies: 4
+    timeToNextWave: 8
+  queues:
+  - qEnemies: []
+  timeBetweenEnemies: 2
+  timeBetweenWaves: 0
+--- !u!114 &4183793030614842230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474690923363787097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03f11d78c691e94fb23c3b22a86e144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 0}
+--- !u!114 &5913157897773515623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474690923363787097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaa2d678c43f9747ac475fc65dbc964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostFactory: {fileID: 9201113977673743066}
+--- !u!114 &9201113977673743066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474690923363787097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e1364c495ad2940bbd685918ef682e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPrefab: {fileID: 4736563565338610769, guid: f3eed718efcd4fe47b4e650fdf63f2e0, type: 3}
+  speedPrefab: {fileID: 4736563565338610769, guid: cbda90565b51daf4b9bffaccf60f45c3, type: 3}
+--- !u!114 &3573983714248325940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474690923363787097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2821cd1e5723184e858bfbfa7db4f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPrefab: {fileID: 4811245887720631638, guid: 88d9772119c949749a5838f1480f7f26, type: 3}
+  spawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnCooldown: 12

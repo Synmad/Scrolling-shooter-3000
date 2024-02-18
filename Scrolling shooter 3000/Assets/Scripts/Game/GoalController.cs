@@ -12,7 +12,7 @@ public class GoalController : MonoBehaviour
     
     private void OnEnable()
     {
-        EnemyCollision.onEnemyDie += IncreaseProgress;
+        EnemyDamage.onEnemyDie += IncreaseProgress;
 
         if (Instance != null && Instance != this) { Destroy(this); }
         else { Instance = this; }
@@ -27,5 +27,5 @@ public class GoalController : MonoBehaviour
         }
     }
 
-    private void OnDisable() => EnemyCollision.onEnemyDie -= IncreaseProgress;
+    private void OnDisable() => EnemyDamage.onEnemyDie -= IncreaseProgress;
 }

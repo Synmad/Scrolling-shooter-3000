@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,18 @@ public class BossAttackingState : BossState
 
     float laserDuration;
 
+    public static Action onBossAttacking;
+    public static Action onBossFired;
+
     BossController _boss;
+
+    bool firing;
     public override void EnterState(BossController boss)
     {
-        Debug.Log("enter attacking");
+        onBossAttacking?.Invoke();
         currentTime = startingTime;
         _boss = boss;
+        onBossFired += Fire;
     }
 
     public override void ExitState(BossController boss)
@@ -23,20 +30,29 @@ public class BossAttackingState : BossState
         Debug.Log("exit attacking");
     }
 
-    // carga durante x segundos para liberar un laser que ocupa todo el tercio de la pantalla en el que se encuentra
     public override void UpdateState(BossController boss)
     {
-        if(currentTime < maxTime)
+        if(firing == false)
         {
-            currentTime += 1 * Time.deltaTime;
-        }
+            if (currentTime < maxTime)
+            {
+                currentTime += 1 * Time.deltaTime;
+            }
 
-        if(currentTime >= maxTime)
-        {
-            boss.laser.SetActive(true);
-            laserDuration += 1 * Time.deltaTime;
-            if(laserDuration >= 3) { boss.laser.SetActive(false); currentTime = startingTime; laserDuration = 0; boss.ChangeState(boss.idle); }
+            if (currentTime >= maxTime)
+            {
+                onBossFired?.Invoke();
+            }
         }
         
+        if(firing == true) { laserDuration += 1 * Time.deltaTime; }
+
+        if (laserDuration >= 3) { _boss.laser.SetActive(false); currentTime = startingTime; laserDuration = 0; _boss.ChangeState(_boss.idle); firing = false; }
+    }
+
+    void Fire()
+    {
+        firing = true;
+        _boss.laser.SetActive(true);
     }
 }

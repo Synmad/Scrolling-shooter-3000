@@ -10,6 +10,10 @@ public class ShipAttackingState : ShipState
 
     ShipController _ship;
 
+    public static Action onEnemyShipAttack;
+
+    float timeBetweenAttacks = 0.2f;
+
     public override void EnterState(ShipController ship)
     {
         _ship = ship;
@@ -37,8 +41,9 @@ public class ShipAttackingState : ShipState
                 bullet.transform.position = bulletSpawner.transform.position;
                 bullet.SetActive(true);
             }
+            onEnemyShipAttack?.Invoke();
             attacksDone++;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(timeBetweenAttacks);
         }
         _ship.ChangeState(_ship.idle);
     }

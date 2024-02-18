@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - PlayerBullet
   - BossWall
+  - EnemyBullet
+  - Asteroid
+  - Boost
   layers:
   - Default
   - TransparentFX

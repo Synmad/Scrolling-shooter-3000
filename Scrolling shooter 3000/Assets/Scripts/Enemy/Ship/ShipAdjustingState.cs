@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class ShipAdjustingState : ShipState
 {
+    float speed;
+    ShipController _ship;
     public override void EnterState(ShipController ship)
     {
-        throw new System.NotImplementedException();
+        speed = ship.speed;
+        _ship = ship;
     }
 
     public override void ExitState(ShipController ship)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void UpdateState(ShipController ship)
     {
-        throw new System.NotImplementedException();
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            _ship.ChangeState(_ship.following);
+        }
     }
 }
