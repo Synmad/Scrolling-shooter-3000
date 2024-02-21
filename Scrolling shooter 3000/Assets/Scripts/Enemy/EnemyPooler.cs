@@ -15,6 +15,16 @@ public class EnemyPooler : MonoBehaviour
     [SerializeField] float timeBetweenEnemies;
     [SerializeField] float timeBetweenWaves;
 
+    void OnEnable()
+    {
+        GoalController.onGoalReached += StopSpawning;
+    }
+
+    void StopSpawning()
+    {
+        StopCoroutine(SpawnQueue());
+    }
+
     private void Start()
     {
         queues = new List<Queue>();
@@ -69,6 +79,11 @@ public class EnemyPooler : MonoBehaviour
             }
             yield return new WaitForSeconds(waves[currentQueue].timeToNextWave);
         }
+    }
+
+    void OnDisable()
+    {
+        GoalController.onGoalReached -= StopSpawning;
     }
 }
 
