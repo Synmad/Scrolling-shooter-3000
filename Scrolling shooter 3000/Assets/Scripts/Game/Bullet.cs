@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         transform.position = pos;
     }
 
-    void OnBecameInvisible() => this.gameObject.SetActive(false);
+    void OnBecameInvisible() { this.gameObject.SetActive(false); }
 
     
 }

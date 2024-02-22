@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6099652884177752103}
   - component: {fileID: 525705293739852909}
   - component: {fileID: 5261465369719935115}
-  - component: {fileID: 8935708507059194272}
+  - component: {fileID: 1010699902626486323}
+  - component: {fileID: 3301612309389708657}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -146,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79af85330aa7d324987bf579c939f60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 70
+  healthBar: {fileID: 0}
 --- !u!60 &5261465369719935115
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -205,7 +207,7 @@ PolygonCollider2D:
       - {x: 0.48999998, y: -0.35999998}
       - {x: 0.48999998, y: 0.35999998}
   m_UseDelaunayMesh: 0
---- !u!114 &8935708507059194272
+--- !u!114 &1010699902626486323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +216,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6229192330074830383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 861696bde01129f4c81d3399ead5f5f1, type: 3}
+  m_Script: {fileID: 11500000, guid: bb9ca965cb56f2b4f841cae28bfa8b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 3552505edfcb0614eaf34813521758a7, type: 2}
+  flashDuration: 0.1
+--- !u!114 &3301612309389708657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229192330074830383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7944fbb745b129a419ec701b3b7bbb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5878405456332100812

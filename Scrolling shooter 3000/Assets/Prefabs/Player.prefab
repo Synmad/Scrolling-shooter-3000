@@ -353,11 +353,11 @@ GameObject:
   - component: {fileID: 692277135941031653}
   - component: {fileID: 4879106529750321888}
   - component: {fileID: 7034821725056685489}
-  - component: {fileID: 9009748054850347441}
   - component: {fileID: 3498624551208128181}
   - component: {fileID: 394764164108153073}
   - component: {fileID: -7399551633553517208}
   - component: {fileID: -7791144498449469010}
+  - component: {fileID: 500340477720165352}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -588,20 +588,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawner: {fileID: 8275754373071367978}
---- !u!114 &9009748054850347441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7114452045895523227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e33e2d136ea1a3e4a91cd9ff217a7052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 2
-  cooldown: 2
 --- !u!114 &3498624551208128181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +639,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
+--- !u!114 &500340477720165352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114452045895523227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653a48e0d6dfba043a3e4f507d447c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: f6057e3aa0d4ed747b89dbe5107a727e, type: 2}
+  flashDuration: 0.2
 --- !u!1 &8275754373071367978
 GameObject:
   m_ObjectHideFlags: 0

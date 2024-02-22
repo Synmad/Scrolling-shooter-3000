@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: -7963717070708481836}
   - component: {fileID: 5691229678818246031}
   - component: {fileID: 3854095838653608207}
+  - component: {fileID: 38930945664564421}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -329,6 +330,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 4
+--- !u!114 &38930945664564421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599593633233610098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9ca965cb56f2b4f841cae28bfa8b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 3552505edfcb0614eaf34813521758a7, type: 2}
+  flashDuration: 0.1
 --- !u!1 &5999589763422778725
 GameObject:
   m_ObjectHideFlags: 0

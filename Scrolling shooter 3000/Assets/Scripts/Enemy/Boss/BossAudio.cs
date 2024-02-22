@@ -7,8 +7,7 @@ public class BossAudio : MonoBehaviour
     [SerializeField] AudioSource arrival;
     [SerializeField] AudioSource chargingLaser;
     [SerializeField] AudioSource firingLaser;
-    [SerializeField] AudioSource death1;
-    [SerializeField] AudioSource death2;
+    [SerializeField] AudioSource death;
 
     private void OnEnable()
     {
@@ -28,7 +27,7 @@ public class BossAudio : MonoBehaviour
 
     void PlayFire() { firingLaser.Play(); }
 
-    void PlayDeath() { death1.Play(); death2.Play(); }
+    void PlayDeath() { death.Play(); }
 
     private void OnDisable()
     {
