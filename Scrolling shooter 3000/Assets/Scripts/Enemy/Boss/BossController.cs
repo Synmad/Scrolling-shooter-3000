@@ -17,12 +17,18 @@ public class BossController : Enemy
 
     public static Action onWallReached;
 
-    [field:SerializeField] public GameObject laser { get; private set; }
+    public GameObject laser { get; private set; }
     public bool chargingLaser;
 
     private void OnEnable()
     {
+        arriving = new BossArrivingState();
+        idle = new BossIdleState();
+        moving = new BossMovingState();
+        attacking = new BossAttackingState();
+        dead = new BossDeadState();
         ChangeState(arriving);
+        laser = transform.Find("Laser").gameObject;
     }
 
     private void Update()

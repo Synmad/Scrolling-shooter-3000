@@ -19,7 +19,8 @@ public class BossAttackingState : BossState
 
     BossController _boss;
     BossColorChange colorChange;
-    
+
+    GameObject laser;
 
     bool firing;
 
@@ -28,12 +29,14 @@ public class BossAttackingState : BossState
         onBossAttacking?.Invoke();
         currentTime = startingTime;
         _boss = boss;
+        laser = _boss.laser;
         onBossFired += Fire;
         colorChange = boss.GetComponent<BossColorChange>();
     }
 
     public override void ExitState(BossController boss)
     {
+        onBossFired -= Fire;
         Debug.Log("exit attacking");
     }
 
@@ -58,7 +61,7 @@ public class BossAttackingState : BossState
 
         if (laserDuration >= 3)
         {
-            _boss.laser.SetActive(false);
+            laser.SetActive(false);
             currentTime = startingTime; 
             laserDuration = 0;
             _boss.ChangeState(_boss.idle);
@@ -69,6 +72,6 @@ public class BossAttackingState : BossState
     void Fire()
     {
         firing = true;
-        _boss.laser.SetActive(true);
+        laser.SetActive(true);
     }
 }
