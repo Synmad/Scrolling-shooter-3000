@@ -9,13 +9,16 @@ public class GoalController : MonoBehaviour
     public int progress{ get; private set; }
 
     public static Action onGoalReached;
-    
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) { Destroy(this); }
+        else { Instance = FindAnyObjectByType<GoalController>(); }
+    }
+
     private void OnEnable()
     {
         EnemyDamage.onEnemyDie += IncreaseProgress;
-
-        if (Instance != null && Instance != this) { Destroy(this); }
-        else { Instance = this; }
     }
 
     void IncreaseProgress()
