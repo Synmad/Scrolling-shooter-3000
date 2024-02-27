@@ -18,6 +18,7 @@ public class BossController : Enemy
     public static Action onWallReached;
 
     [field:SerializeField] public GameObject laser { get; private set; }
+    public bool chargingLaser;
 
     private void OnEnable()
     {
