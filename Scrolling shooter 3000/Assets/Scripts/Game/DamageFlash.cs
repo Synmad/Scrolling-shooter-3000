@@ -15,6 +15,11 @@ public class DamageFlash : MonoBehaviour
         originalMaterial = spriteRenderer.material;
     }
 
+    private void OnEnable()
+    {
+        spriteRenderer.material = originalMaterial;
+    }
+
     public void StartFlash()
     {
         StartCoroutine(Flash());

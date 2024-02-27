@@ -10,7 +10,9 @@ public class EnemyPooler : MonoBehaviour
     public static Action onPoolingComplete;
 
     [SerializeField] List<Queue> queues;
-    int currentQueue;
+    [SerializeField] int currentQueue;
+
+    bool spawningEnabled = true;
 
     void OnEnable()
     {
@@ -20,6 +22,8 @@ public class EnemyPooler : MonoBehaviour
     void StopSpawning()
     {
         StopCoroutine(SpawnQueue());
+        spawningEnabled = false;
+        Debug.Log("stopped spawning");
     }
 
     private void Start()
@@ -59,9 +63,7 @@ public class EnemyPooler : MonoBehaviour
     //Enables enemies in the queue
     IEnumerator SpawnQueue()
     {
-        for(int queueIndex = 0;
-            queueIndex < queues.Count; 
-            queueIndex++)
+        while (currentQueue < queues.Count - 1 && spawningEnabled)
         {
             for(int enemyIndex = 0;
                 enemyIndex < queues[currentQueue].qEnemies.Count;
@@ -69,17 +71,17 @@ public class EnemyPooler : MonoBehaviour
             {
                 GameObject toSpawn;
                 toSpawn = queues[currentQueue].qEnemies[enemyIndex];
-                toSpawn.transform.position = waves[currentQueue].spawnPositions[enemyIndex].position;
-                toSpawn.SetActive(true);
+                if(!toSpawn.activeInHierarchy && spawningEnabled)
+                {
+                    toSpawn.transform.position = waves[currentQueue].spawnPositions[enemyIndex].position;
+                    toSpawn.SetActive(true);
+                }
                 yield return new WaitForSeconds(waves[currentQueue].timeBetweenEnemies);
             }
-            if (currentQueue < queues.Count)
-            {
-                currentQueue++;
-            }
+            currentQueue++;
             yield return new WaitForSeconds(waves[currentQueue].timeToNextWave);
+            if(currentQueue == waves.Length - 1) { currentQueue = 0; }
         }
-        
     }
 
     void OnDisable()

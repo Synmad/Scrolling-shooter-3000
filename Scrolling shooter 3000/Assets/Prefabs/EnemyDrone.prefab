@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -641262701858059635}
   - component: {fileID: -2223289090292443881}
   - component: {fileID: 5813401490417490405}
-  - component: {fileID: 1477662103732499985}
+  - component: {fileID: 6063573481287969664}
   m_Layer: 0
   m_Name: EnemyDrone
   m_TagString: Enemy
@@ -215,8 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603af20016ce4c64580950f285d062b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
---- !u!114 &1477662103732499985
+  curHealth: 0
+  maxHealth: 2
+  explosion: {fileID: 3516610857323883410, guid: f8cfb706257878f418b05aa3d1ea1aab, type: 3}
+--- !u!114 &6063573481287969664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,4 +231,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 3552505edfcb0614eaf34813521758a7, type: 2}
-  flashDuration: 0.1
+  flashDuration: 0.08

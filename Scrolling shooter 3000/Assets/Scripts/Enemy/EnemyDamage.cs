@@ -1,20 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] protected int health;
+    [SerializeField] protected int curHealth;
+    [SerializeField] protected int maxHealth;
 
     public static Action onEnemyDie;
 
+    private void OnEnable()
+    {
+        curHealth = maxHealth;
+    }
+
     public virtual void TakeDamage()
     {
-        health--;
-        if(health <= 0)
+        curHealth--;
+        if(curHealth <= 0)
         {
             onEnemyDie?.Invoke();
+            ExplosionManager.SpawnExplosion(transform.position);
             this.gameObject.SetActive(false);
         }
     }

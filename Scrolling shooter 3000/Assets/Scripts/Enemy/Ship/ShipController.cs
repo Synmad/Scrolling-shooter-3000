@@ -23,7 +23,7 @@ public class ShipController : Enemy
         following = gameObject.AddComponent<ShipFollowingState>(); idle = gameObject.AddComponent<ShipIdleState>(); attacking = gameObject.AddComponent<ShipAttackingState>();
     }
 
-    private void Start() => ChangeState(following);
+    private void OnEnable() => ChangeState(following);
 
     private void Update() => currentState.UpdateState(this);
 

@@ -26,5 +26,6 @@ public class EnemyAudio : MonoBehaviour
     void OnDisable()
     {
         EnemyDamage.onEnemyDie -= PlayDead;
+        EnemyCollision.onEnemyHurt -= PlayHurt;
     }
 }

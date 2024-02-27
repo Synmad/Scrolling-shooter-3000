@@ -6,10 +6,15 @@ public class BossSpawner : MonoBehaviour
 {
     [SerializeField] GameObject boss;
 
-    private void Awake()
+    private void OnEnable()
     {
         GoalController.onGoalReached += Spawn;
     }
 
     void Spawn() { boss.SetActive(true); }
+
+    private void OnDisable()
+    {
+        GoalController.onGoalReached -= Spawn;
+    }
 }

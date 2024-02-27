@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 9201113977673743066}
   - component: {fileID: 3573983714248325940}
   - component: {fileID: 4946416244142338827}
+  - component: {fileID: 3996106685221498542}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -145,6 +146,7 @@ MonoBehaviour:
     timeToNextWave: 3
   queues:
   - qEnemies: []
+  currentQueue: 0
 --- !u!114 &4183793030614842230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +223,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eligibleSpawners: []
+--- !u!114 &3996106685221498542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474690923363787097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155ec3eeb77dab24686ce4a1ef9d7f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 955800374767475000, guid: fac8c6244d9de404e80c7fd08e5957fd, type: 3}
+  pooledObjects: []
+  poolSize: 5
