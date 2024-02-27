@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float defaultForce;
     [SerializeField] float boostedForce;
     float force;
-    bool boosted;
+    public static bool boosted;
 
     [SerializeField] float boostDuration;
     float remainingTime;
@@ -23,11 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (boosted)
         {
+            Debug.Log("boosted");
             force = boostedForce;
             remainingTime -= Time.deltaTime;
         }
         if(remainingTime <= 0)
         {
+            Debug.Log("boost ended");
             boosted = false;
             force = defaultForce;
         }

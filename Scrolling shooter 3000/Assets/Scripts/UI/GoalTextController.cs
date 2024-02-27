@@ -7,16 +7,17 @@ public class GoalTextController : MonoBehaviour
 
     TextMeshProUGUI text;
 
+    private void OnEnable()
+    {
+        enemiesRemaining = GoalController.Instance.goal;
+        UpdateText();
+        GoalController.onGoalReached += DisableText;
+    }
+
     private void Awake()
     {
         EnemyDamage.onEnemyDie += DecreaseEnemiesRemaining;
         text = GetComponent<TextMeshProUGUI>();
-    }
-
-    private void Start()
-    {
-        enemiesRemaining = GoalController.Instance.goal;
-        UpdateText();
     }
 
     void DecreaseEnemiesRemaining()
@@ -26,4 +27,14 @@ public class GoalTextController : MonoBehaviour
     }
 
     void UpdateText() => text.text = "ENEMIES REMAINING: " + enemiesRemaining.ToString();
+
+    void DisableText()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        GoalController.onGoalReached -= DisableText;
+    }
 }

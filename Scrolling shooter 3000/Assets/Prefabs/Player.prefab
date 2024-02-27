@@ -569,8 +569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultForce: 0.8
-  boostedForce: 1.3
-  boostDuration: 10
+  boostedForce: 1.2
+  boostDuration: 7
 --- !u!114 &7034821725056685489
 MonoBehaviour:
   m_ObjectHideFlags: 0

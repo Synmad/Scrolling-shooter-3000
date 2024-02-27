@@ -12,7 +12,7 @@ public class GameOverController : MonoBehaviour
         BossDamage.onVictory += GoToVictory;
     }
 
-    void GoToDefeat() => SceneManager.LoadScene(defeatScene);
+    void GoToDefeat() => SceneManager.LoadSceneAsync(defeatScene);
 
-    void GoToVictory() => SceneManager.LoadScene(victoryScene);
+    void GoToVictory() => SceneManager.LoadSceneAsync(victoryScene);
 }
