@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class SectionTrigger : MonoBehaviour
 {
-    GameObject player;
-    PlayerSection playerSection;
-
     [SerializeField] PlayerSection.atSection thisSection;
+    GameObject spawner;
 
-    private void Awake() => player = GameObject.FindGameObjectWithTag("Player");
-
-    private void Start() => playerSection = player.GetComponent<PlayerSection>();
+    private void Awake()
+    {
+        spawner = transform.GetChild(0).gameObject;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            playerSection.section = thisSection;
+            PlayerSection.section = thisSection;
+            spawner.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            spawner.SetActive(false);
         }
     }
 }

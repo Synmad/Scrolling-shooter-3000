@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BossMovingState : BossState
 {
-    GameObject player;
-    PlayerSection playerSection;
-
     GameObject top; GameObject mid; GameObject bot;
 
     Vector2 targetPosition;
@@ -18,17 +15,14 @@ public class BossMovingState : BossState
         Debug.Log("enter moving");
 
         top = boss.top; mid = boss.mid; bot = boss.bot;
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerSection = player.GetComponent<PlayerSection>();
     }
     public override void UpdateState(BossController boss)
     {
-        if(playerSection.section == PlayerSection.atSection.top) { targetPosition = new Vector2(boss.transform.position.x, top.transform.position.y); }
+        if(PlayerSection.section == PlayerSection.atSection.top) { targetPosition = new Vector2(boss.transform.position.x, top.transform.position.y); }
 
-        if (playerSection.section == PlayerSection.atSection.mid) { targetPosition = new Vector2(boss.transform.position.x, mid.transform.position.y); }
+        if (PlayerSection.section == PlayerSection.atSection.mid) { targetPosition = new Vector2(boss.transform.position.x, mid.transform.position.y); }
 
-        if (playerSection.section == PlayerSection.atSection.bot) { targetPosition = new Vector2(boss.transform.position.x, bot.transform.position.y); }
+        if (PlayerSection.section == PlayerSection.atSection.bot) { targetPosition = new Vector2(boss.transform.position.x, bot.transform.position.y); }
 
         boss.transform.position = Vector2.MoveTowards(boss.transform.position, targetPosition, speed * Time.deltaTime);
 

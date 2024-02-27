@@ -12,9 +12,6 @@ public class EnemyPooler : MonoBehaviour
     [SerializeField] List<Queue> queues;
     int currentQueue;
 
-    [SerializeField] float timeBetweenEnemies;
-    [SerializeField] float timeBetweenWaves;
-
     void OnEnable()
     {
         GoalController.onGoalReached += StopSpawning;
@@ -32,6 +29,8 @@ public class EnemyPooler : MonoBehaviour
         StartCoroutine(SpawnQueue());
     }
 
+
+    //Instantiates requested enemies, adds them to the queue, and disables them
     void PoolWaves()
     {
         for(int waveIndex = 0; 
@@ -57,10 +56,11 @@ public class EnemyPooler : MonoBehaviour
         }
     }
 
+    //Enables enemies in the queue
     IEnumerator SpawnQueue()
     {
         for(int queueIndex = 0;
-            queueIndex <= queues.Count; 
+            queueIndex < queues.Count; 
             queueIndex++)
         {
             for(int enemyIndex = 0;

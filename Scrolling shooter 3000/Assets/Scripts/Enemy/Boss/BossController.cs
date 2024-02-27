@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossController : Enemy
 {
-    BossState currentState;
+    public static BossState currentState;
 
     public BossArrivingState arriving = new BossArrivingState();
     public BossIdleState idle = new BossIdleState();
