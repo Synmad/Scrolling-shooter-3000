@@ -79,6 +79,7 @@ public class EnemyPooler : MonoBehaviour
             }
             yield return new WaitForSeconds(waves[currentQueue].timeToNextWave);
         }
+        
     }
 
     void OnDisable()
