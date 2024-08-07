@@ -2,11 +2,11 @@ public class PlayerDamageFlash : DamageFlash
 {
     private void OnEnable()
     {
-        PlayerCollision.onPlayerHit += StartFlash;
+        PlayerCollision.OnPlayerHit += StartFlash;
     }
 
     private void OnDisable()
     {
-        PlayerCollision.onPlayerHit -= StartFlash;
+        PlayerCollision.OnPlayerHit -= StartFlash;
     }
 }

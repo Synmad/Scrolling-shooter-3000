@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerCollision.onPlayerHit += Damage;
+        PlayerCollision.OnPlayerHit += Damage;
         curHealth = maxHealth;
     }
 
@@ -34,6 +34,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerCollision.onPlayerHit -= Damage;
+        PlayerCollision.OnPlayerHit -= Damage;
     }
 }

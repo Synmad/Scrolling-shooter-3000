@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] int direction;
 
     Vector2 directionVector;
-    Vector2 velocity;
+    public Vector2 velocity;
 
     private void Awake() => directionVector = new Vector2(direction, 0);
 
@@ -21,7 +21,5 @@ public class Bullet : MonoBehaviour
         transform.position = pos;
     }
 
-    void OnBecameInvisible() { this.gameObject.SetActive(false); }
-
-    
+    void OnBecameInvisible() => this.gameObject.SetActive(false);
 }

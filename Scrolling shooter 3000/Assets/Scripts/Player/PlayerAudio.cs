@@ -11,7 +11,7 @@ public class PlayerAudio : MonoBehaviour
     private void OnEnable()
     {
         PlayerAttack.onPlayerAttack += PlayFire;
-        PlayerCollision.onPlayerHit += PlayHurt;
+        PlayerCollision.OnPlayerHit += PlayHurt;
     }
 
     void PlayFire() { fire.Play(); }
@@ -21,6 +21,6 @@ public class PlayerAudio : MonoBehaviour
     private void OnDisable()
     {
         PlayerAttack.onPlayerAttack -= PlayFire;
-        PlayerCollision.onPlayerHit -= PlayHurt;
+        PlayerCollision.OnPlayerHit -= PlayHurt;
     }
 }

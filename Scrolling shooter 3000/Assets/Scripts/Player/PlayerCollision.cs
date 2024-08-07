@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public static Action onPlayerHit;
+    public static Action OnPlayerHit;
+    [SerializeField] float _cameraShakeIntensity;
+    [SerializeField] float _cameraShakeDuration;
 
-    float timer = 0.8f;
-    float timeLeft;
+    float _timer = 0.8f;
+    float _timeLeft;
 
     private void Awake()
     {
-        timeLeft = timer;
+        _timeLeft = _timer;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,26 +21,27 @@ public class PlayerCollision : MonoBehaviour
         || collision.gameObject.CompareTag("EnemyBullet") 
         || collision.gameObject.CompareTag("Asteroid"))
         {
-            onPlayerHit?.Invoke();
+            OnPlayerHit?.Invoke();
+            CameraShakeController.Instance.ShakeCamera(_cameraShakeIntensity, _cameraShakeDuration);
         }
     }
-
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy")
         || collision.gameObject.CompareTag("EnemyBullet"))
         {
-            timeLeft -= Time.deltaTime;
-            if (timeLeft <= 0)
+            _timeLeft -= Time.deltaTime;
+            if (_timeLeft <= 0)
             {
-                onPlayerHit?.Invoke();
-                timeLeft = timer;
+                OnPlayerHit?.Invoke();
+                _timeLeft = _timer;
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        timeLeft = timer;
+        _timeLeft = _timer;
     }
 }
