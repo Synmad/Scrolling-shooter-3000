@@ -23,13 +23,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (boosted)
         {
-            Debug.Log("boosted");
             force = boostedForce;
             remainingTime -= Time.deltaTime;
         }
         if(remainingTime <= 0)
         {
-            Debug.Log("boost ended");
             boosted = false;
             force = defaultForce;
         }

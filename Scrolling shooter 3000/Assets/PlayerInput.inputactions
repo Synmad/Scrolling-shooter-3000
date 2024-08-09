@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "7af7c805-6ce2-4dbe-a94e-817a188f3fe6",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -137,6 +137,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a841557f-33c7-4c81-89da-cfe69d9dc4d0",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b01cbdca-5bab-4d90-b70b-c4814f309cd1",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -148,8 +159,8 @@
                 },
                 {
                     "name": "",
-                    "id": "d7cdfd8e-304d-410c-83e1-664f5dc82cbf",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "487bcf0a-b9d7-4c35-92fd-dac4c0a192d6",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -159,8 +170,8 @@
                 },
                 {
                     "name": "",
-                    "id": "487bcf0a-b9d7-4c35-92fd-dac4c0a192d6",
-                    "path": "<Gamepad>/buttonWest",
+                    "id": "94924f54-6b52-4889-af49-81e999097a22",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

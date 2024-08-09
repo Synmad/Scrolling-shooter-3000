@@ -4,33 +4,52 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    GameObject bullet;
-    [SerializeField] GameObject bulletSpawner;
-    public static Action onPlayerAttack;
+    GameObject _bullet;
+    [SerializeField] GameObject _bulletSpawner;
+    [SerializeField] float _shootingCooldown;
+    public static Action OnPlayerShoot;
+    bool _isShooting;
+    float _shootingTimer;
 
     private void OnEnable()
     {
-        onPlayerAttack += SpawnBullet;
+        OnPlayerShoot += SpawnBullet;
     }
 
-    void Shoot(InputAction.CallbackContext callbackcontext)
+    private void Start()
     {
-        if (callbackcontext.performed) { onPlayerAttack?.Invoke(); }
+        _shootingTimer = _shootingCooldown;
+    }
+
+    void Shoot(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.performed) { _isShooting = true; }
+        else if (callbackContext.canceled) { _isShooting = false; }
+    }
+
+    private void Update()
+    {
+        if (_isShooting) { _shootingTimer -= Time.deltaTime; }
+        if (_shootingTimer <= 0) 
+        {
+            OnPlayerShoot?.Invoke();
+            _shootingTimer = _shootingCooldown;
+        }
     }
 
     void SpawnBullet()
     {
-        bullet = PlayerBulletPool.Instance.GetPooledObjects();
+        _bullet = PlayerBulletPool.Instance.GetPooledObjects();
         
-        if (bullet != null)
+        if (_bullet != null)
         {
-            bullet.transform.position = bulletSpawner.transform.position;
-            bullet.SetActive(true);
+            _bullet.transform.position = _bulletSpawner.transform.position;
+            _bullet.SetActive(true);
         }
     }
 
     private void OnDisable()
     {
-        onPlayerAttack -= SpawnBullet;
+        OnPlayerShoot -= SpawnBullet;
     }
 }

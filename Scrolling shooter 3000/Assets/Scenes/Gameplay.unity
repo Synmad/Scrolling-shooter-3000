@@ -3306,14 +3306,6 @@ PrefabInstance:
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 3498624551208128181, guid: 84f8db8bace96a64d9ae16c14413196d, type: 3}
-      propertyPath: _cameraShakeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3498624551208128181, guid: 84f8db8bace96a64d9ae16c14413196d, type: 3}
-      propertyPath: _cameraShakeIntensity
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7114452045895523227, guid: 84f8db8bace96a64d9ae16c14413196d, type: 3}
       propertyPath: m_Name
       value: Player

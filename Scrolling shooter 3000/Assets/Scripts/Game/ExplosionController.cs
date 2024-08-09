@@ -14,7 +14,6 @@ public class ExplosionController : MonoBehaviour
     IEnumerator EndExplosion()
     {
         yield return new WaitForSeconds(duration);
-        Debug.Log("ended explosion");
         gameObject.SetActive(false);
     }
 }

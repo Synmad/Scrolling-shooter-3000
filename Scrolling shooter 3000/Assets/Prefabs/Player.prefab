@@ -583,7 +583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084b9520cccd22e49b9df77935168e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawner: {fileID: 8275754373071367978}
+  _bulletSpawner: {fileID: 8275754373071367978}
+  _shootingCooldown: 0.15
 --- !u!114 &3498624551208128181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d348dddbb9f1014eaca2ed69e932423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraShakeIntensity: 2
+  _cameraShakeDuration: 0.5
 --- !u!114 &394764164108153073
 MonoBehaviour:
   m_ObjectHideFlags: 0
